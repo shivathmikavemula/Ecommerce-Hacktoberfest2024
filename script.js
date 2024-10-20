@@ -22,4 +22,12 @@ function toggleMenu() {
     navbar.classList.toggle('active'); // Toggle the active class
 };
 
-
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
